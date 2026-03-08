@@ -42,3 +42,69 @@ export const sendWelcomeEmail = async (to, name) => {
   `,
   });
 };
+
+export const sendTransactionSuccessEmail = async (
+  userEmail,
+  name,
+  amount,
+  toAccount
+) => {
+  await transporter.sendMail({
+    from: `"Sourodip Auth" <${process.env.EMAIL_USER}>`,
+
+    to: userEmail,
+
+    subject: "🎉 Transaction is successful!",
+
+    html: `
+
+   <div style="font-family: Arial; padding: 20px;">
+
+    <h2>Welcome, ${name}! 🎉</h2>
+
+    <p>You have successfully sended ${amount} to this ${toAccount}.</p>
+
+    <br/>
+
+    <p>Best Regards,</p>
+
+    <p><b>banking-backend Team</b></p>
+
+   </div>
+
+  `,
+  });
+};
+
+export const sendTransactionFailedEmail = async (
+  userEmail,
+  name,
+  amount,
+  toAccount
+) => {
+  await transporter.sendMail({
+    from: `"Sourodip Auth" <${process.env.EMAIL_USER}>`,
+
+    to: userEmail,
+
+    subject: "❌ Transaction is NOT successful!",
+
+    html: `
+
+   <div style="font-family: Arial; padding: 20px;">
+
+    <h2>Welcome, ${name}! 🎉</h2>
+
+    <p>Your transaction of ${amount} to this ${toAccount} has failed.If money has deducted from your account then it will be back within 24 hours</p>
+
+    <br/>
+
+    <p>Best Regards,</p>
+
+    <p><b>banking-backend Team</b></p>
+
+   </div>
+
+  `,
+  });
+};

@@ -15,7 +15,7 @@ const transactionSchema = new mongoose.Schema({
     status:{
         type:String,
         enum:{
-            values:["Pending",'Completed',"Failed","Reversed"]
+            values:["PENDING","COMPLETED","FAILED","REVERSED"]
         },
         default:'Pending'
     },
@@ -24,7 +24,7 @@ const transactionSchema = new mongoose.Schema({
         required:[true,'An amount is required to initiate a transaction'],
         min:[1,'Transaction amount can not less than be 1']
     },
-    idempotencyKey:{
+    idempotencykey:{
         type:String,
         required:[true,'IdemPotencyKey is required for a valid transaction'],
         unique:true,

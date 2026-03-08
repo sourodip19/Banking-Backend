@@ -23,6 +23,12 @@ const userSchema = new mongoose.Schema(
       minlength: [5, "Password must be 5 or more characters long"],
       select: false, // By doing this unless i am calling password exclusively it will not appear inside user's data
     },
+    systemUser: {
+      type: Boolean,
+      default: false,
+      immutable: true,
+      select: false,
+    },
   },
   {
     timestamps: true,
