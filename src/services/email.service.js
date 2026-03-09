@@ -44,7 +44,7 @@ export const sendWelcomeEmail = async (to, name) => {
 };
 
 export const sendTransactionSuccessEmail = async (
-  userEmail,
+  fromAccount,
   name,
   amount,
   toAccount
@@ -52,7 +52,7 @@ export const sendTransactionSuccessEmail = async (
   await transporter.sendMail({
     from: `"Sourodip Auth" <${process.env.EMAIL_USER}>`,
 
-    to: userEmail,
+    to: fromAccount,
 
     subject: "🎉 Transaction is successful!",
 

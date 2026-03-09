@@ -17,7 +17,7 @@ const transactionSchema = new mongoose.Schema({
         enum:{
             values:["PENDING","COMPLETED","FAILED","REVERSED"]
         },
-        default:'Pending'
+        default:'PENDING'
     },
     amount:{
         type:Number,
